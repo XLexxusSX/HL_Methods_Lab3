@@ -1,52 +1,37 @@
 package com.AlexeyPopov1984;
-import java.util.*;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int N = 15;
-        Random rand = new Random();
 
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = rand.nextInt(100);
-        }
-        System.out.println("a) Massiv iz N: " + Arrays.toString(array));
+        Scanner scanner = new Scanner(System.in);
 
-        List<Integer> list = new ArrayList<>();
-        for (int num : array) {
-            list.add(num);
-        }
-        System.out.println("b) Spisok: " + list);
+        do {
+            System.out.println("\nLaba 3. ZADACHI: ");
+            System.out.println("1. Rabota nad spiskom.");
+            System.out.println("2. Klass PrimesGenerator.");
+            System.out.println("3. ...");
+            System.out.println("4. Podschet slov");
+            System.out.println("5. ...\n");
+            System.out.print("Vvedite nomer zadachi (ot 1 do 5) ili 'q' dlya vyhoda: ");
 
-        Collections.sort(list);
-        System.out.println("c) Otsortirovanniy spisok po vozrastaniyu: " + list);
+            String input = scanner.nextLine();
 
-        Collections.reverse(list);
-        System.out.println("d) Otsortirovanniy spisok po ubyvaniyu: " + list);
-
-        Collections.shuffle(list);
-        System.out.println("e) Spisok peremeshan: " + list);
-
-        Collections.rotate(list, -1);
-        System.out.println("f) Sdvig na 1 vpravo: " + list);
-
-        list = new ArrayList<>(new LinkedHashSet<>(list));
-        System.out.println("g) Ostavil v spiske tol'ko unikal'nye: " + list);
-
-
-        System.out.println("h) Spidok s dublikatami: poka net");
-
-        Integer[] newArray = list.toArray(new Integer[0]);
-        System.out.println("i) Iz spiska v massiv: " + Arrays.toString(newArray));
-
-        Map<Integer, Integer> count = new HashMap<>();
-        for (int num : newArray) {
-            count.put(num, count.getOrDefault(num, 0) + 1);
-        }
-
-        System.out.println("j) Kolichestvo vhozhdeniy: ");
-        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
-            System.out.print("[" + entry.getKey() + ": " + entry.getValue() + "] ");
-        }
+            if (input.equalsIgnoreCase("q"))
+                break;
+            else if (input.equals("1"))
+                Zadacha_1.rabotaNadSpiskom();
+            else if (input.equals("2"))
+                Zadacha_2.prostyeChisla();
+//            else if (input.equals("3"))
+//                Zadacha_3.dataEntryTask_3();
+            else if (input.equals("4"))
+                Zadacha_4.wordCount();
+//            else if (input.equals("5"))
+//                Zadacha_5.dataEntryTask_5();
+            else
+                System.out.println("\nNeverniy vvod. Poprobuyte snova");
+        } while (true);
     }
 }
