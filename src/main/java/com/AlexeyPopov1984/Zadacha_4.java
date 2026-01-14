@@ -20,7 +20,16 @@ public class Zadacha_4 {
 
         text = text.toLowerCase();
 
-        String[] words = text.split(" ");
+        String cleanedText = "";
+        for (char c : text.toCharArray()) {
+            if ((c >= 'a' && c <= 'z') || c == ' ') {
+                cleanedText += c;
+            } else {
+                cleanedText += ' ';
+            }
+        }
+
+        String[] words = cleanedText.split(" ");
         Map<String, Integer> wordPovtor = new HashMap<>();
 
         for (String word : words) {
